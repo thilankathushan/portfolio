@@ -25,20 +25,46 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // ── Contact form ──
-document.getElementById('contactForm').addEventListener('submit', e => {
+// ── EmailJS setup ──
+const EMAILJS_PUBLIC_KEY  = 'h2plFolS2A2_VLAQp'; 
+const EMAILJS_SERVICE_ID  = 'portfolio_service'; 
+const EMAILJS_TEMPLATE_ID = 'template_8tzg5sp';
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// ── Contact form submission ──
+document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const status = document.getElementById('formStatus');
-  const name = document.getElementById('nameInput').value;
 
-  // In a real project you'd send this to a backend or EmailJS
-  // For now, we simulate a successful send
-  status.textContent = `Thanks ${name}! I'll get back to you soon.`;
+  const submitBtn  = document.getElementById('submitBtn');
+  const status     = document.getElementById('formStatus');
 
-  // Clear the form
-  e.target.reset();
+  // Disable the button while sending so user can't double-submit
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  status.textContent = '';
+  status.style.color = 'var(--accent)';
 
-  // Clear the message after 4 seconds
-  setTimeout(() => { status.textContent = ''; }, 4000);
+  // emailjs.sendForm reads the name="" attributes from your form fields
+  // and matches them to {{variables}} in your template automatically
+  emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+    .then(() => {
+      // Success
+      status.textContent = 'Message sent! I\'ll get back to you soon.';
+      status.style.color = 'var(--low)'; // green
+      this.reset();
+    })
+    .catch((error) => {
+      // Something went wrong
+      console.error('EmailJS error:', error);
+      status.textContent = 'Something went wrong. Try emailing me directly.';
+      status.style.color = 'var(--high)'; // red
+    })
+    .finally(() => {
+      // Re-enable the button either way
+      submitBtn.textContent = 'Send message';
+      submitBtn.disabled = false;
+    });
 });
 
 // ── Fade-in sections on scroll ──

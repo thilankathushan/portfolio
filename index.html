@@ -108,10 +108,10 @@
     <h2 class="section-title">Get in touch</h2>
     <p class="contact-sub">I'm always open to collaborating on interesting projects or just having a chat about tech.</p>
     <form class="contact-form" id="contactForm">
-      <input type="text" placeholder="Your name" id="nameInput" required />
-      <input type="email" placeholder="Your email" id="emailInput" required />
-      <textarea placeholder="Your message" id="messageInput" rows="5" required></textarea>
-      <button type="submit" class="btn btn-primary">Send message</button>
+      <input type="text" placeholder="Your name" id="nameInput" name="from_name" required />
+      <input type="email" placeholder="Your email" id="emailInput" name="from_email" required />
+      <textarea placeholder="Your message" id="messageInput" name="message" rows="5" required></textarea>
+      <button type="submit" class="btn btn-primary" id="submitBtn">Send message</button>
       <p class="form-status" id="formStatus"></p>
     </form>
   </section>
@@ -121,6 +121,7 @@
     <p>Built by Thilanka Thushan · <a href="https://github.com/thilankathushan" target="_blank">GitHub</a></p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
