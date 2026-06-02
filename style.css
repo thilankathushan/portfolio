@@ -211,64 +211,45 @@ strong { color: var(--text); font-weight: 600; }
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 92vh;
-  overflow: hidden;
+  min-height: 88vh;
 }
-
-/* Frameless transparent cutout, bleeding off the right */
-.hero-visual {
-  position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: clamp(440px, 50vw, 760px);
-  z-index: 0;
-  display: flex; align-items: flex-end; justify-content: center;
-  pointer-events: none;
-}
-
-/* Soft colour halo behind the subject */
-.photo-backdrop {
-  position: absolute; top: 6%; left: 50%;
-  width: 78%; aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 45%, var(--accent2), var(--accent) 42%, transparent 68%);
-  opacity: 0.30;
-  filter: blur(18px);
-  animation: haloPulse 7s ease-in-out infinite;
-}
-@keyframes haloPulse { 0%,100%{transform:translateX(-50%) scale(1);opacity:.28} 50%{transform:translateX(-50%) scale(1.06);opacity:.36} }
-
-/* Grounding shadow under the subject */
-.photo-ground {
-  position: absolute; bottom: 7%; left: 50%;
-  width: 56%; height: 4%;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35), transparent 70%);
-  filter: blur(8px);
-}
-
-.hero-photo-bleed {
-  position: relative; z-index: 1;
-  width: 100%; height: 94%;
-  object-fit: contain; object-position: bottom center;
-  filter: drop-shadow(0 24px 36px rgba(20,12,50,0.30));
-  animation: bobY 6.5s ease-in-out infinite;
-  /* dissolve only the cropped shirt hem into the page */
-  -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
-}
-@keyframes bobY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-
 
 .hero-content {
-  position: relative;
-  z-index: 2;
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
   padding: 4rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
 }
 .hero-text { max-width: 600px; }
+
+/* Photo inside an organic blob shape */
+.hero-visual { display: flex; justify-content: center; }
+.photo-blob {
+  position: relative;
+  width: clamp(240px, 28vw, 350px);
+  aspect-ratio: 1;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(155deg, var(--accent), var(--accent2) 70%, var(--accent3));
+  border-radius: 42% 58% 53% 47% / 48% 42% 58% 52%;
+  box-shadow: var(--shadow-lg);
+  animation: morph 14s ease-in-out infinite, bobY 6.5s ease-in-out infinite;
+}
+.photo-blob img {
+  width: 94%; height: auto;
+  object-fit: contain; object-position: bottom center;
+  display: block;
+}
+@keyframes morph {
+  0%,100% { border-radius: 42% 58% 53% 47% / 48% 42% 58% 52%; }
+  34%     { border-radius: 58% 42% 45% 55% / 52% 56% 44% 48%; }
+  67%     { border-radius: 47% 53% 58% 42% / 44% 48% 52% 56%; }
+}
+@keyframes bobY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 
 .hero-greeting {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -567,15 +548,11 @@ strong { color: var(--text); font-weight: 600; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; min-height: auto; padding-top: 1rem; }
-  .hero-visual {
-    position: relative; order: -1;
-    width: min(80%, 320px); height: auto; aspect-ratio: 1;
-    margin: 0 auto; inset: auto;
-  }
+  .hero { min-height: auto; padding: 2rem 0; }
+  .hero-content { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+  .hero-text { order: 2; max-width: none; }
+  .hero-visual { order: 1; }
   .scroll-cue { display: none; }
-  .hero-content { padding-top: 0.5rem; text-align: center; }
-  .hero-text { max-width: none; }
   .hero-greeting, .hero-role { justify-content: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-buttons, .hero-socials, .hero-stats { justify-content: center; }

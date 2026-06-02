@@ -48,20 +48,12 @@ const navbar = document.getElementById('navbar');
 const progress = document.getElementById('scrollProgress');
 const toTop = document.getElementById('toTop');
 
-const heroVisual = document.querySelector('.hero-visual');
-const vh = () => window.innerHeight;
-
 const onScroll = () => {
   const y = window.scrollY;
   const h = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
   navbar.classList.toggle('scrolled', y > 20);
   toTop.classList.toggle('show', y > 600);
-
-  // Hero photo parallax (skip on touch / reduced-motion)
-  if (heroVisual && !isTouch && !prefersReduced && y < vh() * 1.2) {
-    heroVisual.style.transform = `translate3d(0, ${y * 0.16}px, 0)`;
-  }
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
