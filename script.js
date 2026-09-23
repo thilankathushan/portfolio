@@ -121,7 +121,7 @@ document.querySelectorAll('.stat-num').forEach(s => statObserver.observe(s));
 
 // ── Typed role text ──
 const roleEl = document.getElementById('roleTyped');
-const phrases = ['AI-powered tools.', 'full-stack apps.', 'embedded hardware.', 'for real clients.', 'with machine learning.'];
+const phrases = ['AI-powered tools.', 'with machine learning.', 'intelligent systems.', 'full-stack apps.', 'embedded hardware.'];
 if (roleEl && !prefersReduced) {
   let pi = 0, ci = 0, deleting = false;
   const type = () => {
