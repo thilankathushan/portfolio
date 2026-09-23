@@ -24,7 +24,6 @@
   --shadow-lg: 0 30px 70px -28px rgba(82,52,180,0.40);
   --shadow-sm: 0 8px 24px -12px rgba(82,52,180,0.30);
   --nav-bg: rgba(255,255,255,0.65);
-  --grid-line: rgba(20,16,40,0.04);
   --blob-o: 0.55;
 }
 
@@ -48,7 +47,6 @@
   --shadow-lg: 0 30px 80px -30px rgba(0,0,0,0.85);
   --shadow-sm: 0 10px 30px -15px rgba(0,0,0,0.7);
   --nav-bg: rgba(8,7,13,0.6);
-  --grid-line: rgba(255,255,255,0.035);
   --blob-o: 0.5;
 }
 
@@ -68,7 +66,33 @@ a { color: inherit; text-decoration: none; }
 strong { color: var(--text); font-weight: 600; }
 
 /* ── Background layers ── */
-.bg-aurora, .bg-grid, .bg-noise {
+.bg-aurora, .bg-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -3;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: strict;
+}
+
+.bg-aurora { z-index: -3; overflow: hidden; }
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: var(--blob-o);
+  will-change: transform;
+}
+.blob-1 { width: 46vw; height: 46vw; background: var(--accent);  top: -8%;  left: -6%;  animation: drift1 22s ease-in-out infinite; }
+.blob-2 { width: 40vw; height: 40vw; background: var(--accent3); top: 18%;  right: -10%; animation: drift2 26s ease-in-out infinite; }
+.blob-3 { width: 38vw; height: 38vw; background: var(--accent2); bottom: -12%; left: 25%; animation: drift3 30s ease-in-out infinite; }
+
+@keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(8vw,6vh) scale(1.15)} }
+@keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-6vw,8vh) scale(1.1)} }
+@keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(5vw,-7vh) scale(1.2)} }
+
+.bg-noise {
   position: fixed;
   inset: 0;
   pointer-events: none;
