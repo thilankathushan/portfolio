@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
 
@@ -70,7 +70,7 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num" data-count="9">0</span><span class="stat-label">Projects Built</span></div>
+          <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label">Projects Built</span></div>
           <div class="stat"><span class="stat-num" data-count="15" data-suffix="+">0</span><span class="stat-label">Technologies</span></div>
           <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Year of Study</span></div>
         </div>
@@ -167,6 +167,34 @@
             <div class="project-links">
               <a href="https://www.srilankabaseball.lk" target="_blank" rel="noopener" class="project-link">Visit site <span>↗</span></a>
               <span class="project-note">Private repository</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card featured flip tilt" data-reveal>
+          <div class="project-glow"></div>
+          <a href="https://jpura-authentic.web.app" target="_blank" rel="noopener" class="project-shot">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i><span>jpura-authentic.web.app</span></div>
+              <img src="images/jpura-authentic.jpg" alt="J'PURA Authentic store preview" loading="lazy" />
+            </div>
+          </a>
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-tag">Client · E-commerce</span>
+              <span class="project-index">2026</span>
+            </div>
+            <h3 class="project-title">J'PURA Authentic</h3>
+            <p class="project-desc">Online store for the University of Sri Jayewardenepura's limited-edition baseball-style crop top. Customers browse three colors, choose sizes, fill a cart, and place orders that the team tracks and fulfils.</p>
+            <ul class="project-points">
+              <li>Live stock per color and size, decremented in a Firestore transaction so two buyers can't claim the last item</li>
+              <li>Checkout with bank transfer (payment slip upload to private storage) or pay on collection</li>
+              <li>Order export script that turns every order into an Excel sheet with links to its payment slip</li>
+            </ul>
+            <div class="project-stack"><span>React 19</span><span>Vite</span><span>Firebase</span><span>Firestore</span><span>Cloud Storage</span><span>Firebase Hosting</span></div>
+            <div class="project-links">
+              <a href="https://jpura-authentic.web.app" target="_blank" rel="noopener" class="project-link">Visit site <span>↗</span></a>
+              <span class="project-note">Private source</span>
             </div>
           </div>
         </article>
@@ -369,6 +397,6 @@
   <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
