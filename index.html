@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
 
@@ -210,9 +210,14 @@
 
         <article class="project-card featured tilt" data-reveal>
           <div class="project-glow"></div>
-          <div class="project-photo">
-            <img src="images/smart-blind-stick.jpg" alt="Smart Blind Stick prototype with ultrasonic sensors and Arduino housing" loading="lazy" />
+          <div class="project-photo slider" data-slider>
+            <img class="active" src="images/smart-blind-stick.jpg" alt="Close-up of the sensor housing with ultrasonic sensors and Arduino enclosure" loading="lazy" />
+            <img src="images/smart-blind-stick-2.jpg" alt="Smart Blind Stick being used on a tiled floor" loading="lazy" />
+            <img src="images/smart-blind-stick-3.jpg" alt="Side view of the sensor module mounted on the cane" loading="lazy" />
             <span class="photo-badge">Working prototype</span>
+            <button class="slide-btn prev" type="button" aria-label="Previous photo">‹</button>
+            <button class="slide-btn next" type="button" aria-label="Next photo">›</button>
+            <div class="slide-dots"></div>
           </div>
           <div class="project-body">
             <div class="project-top">
@@ -435,6 +440,6 @@
   <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

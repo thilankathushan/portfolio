@@ -155,6 +155,50 @@ filterBtns.forEach(btn => {
   });
 });
 
+// ── Photo sliders ──
+document.querySelectorAll('[data-slider]').forEach(slider => {
+  const slides = slider.querySelectorAll('img');
+  const dotsWrap = slider.querySelector('.slide-dots');
+  let current = 0;
+  let timer;
+
+  const dots = Array.from(slides, (_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show photo ${i + 1}`);
+    dot.addEventListener('click', () => { show(i); restart(); });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function show(i) {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, j) => s.classList.toggle('active', j === current));
+    dots.forEach((d, j) => d.classList.toggle('active', j === current));
+  }
+  function restart() {
+    clearInterval(timer);
+    if (!prefersReduced) timer = setInterval(() => show(current + 1), 4500);
+  }
+
+  slider.querySelector('.prev').addEventListener('click', () => { show(current - 1); restart(); });
+  slider.querySelector('.next').addEventListener('click', () => { show(current + 1); restart(); });
+  slider.addEventListener('mouseenter', () => clearInterval(timer));
+  slider.addEventListener('mouseleave', restart);
+
+  let startX = null;
+  slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { show(current + (dx < 0 ? 1 : -1)); restart(); }
+    startX = null;
+  });
+
+  show(0);
+  restart();
+});
+
 // ── 3D tilt + cursor sheen on project cards ──
 if (!isTouch && !prefersReduced) {
   document.querySelectorAll('.project-card.tilt').forEach(card => {
