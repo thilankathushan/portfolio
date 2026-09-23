@@ -70,7 +70,7 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-label">Projects Built</span></div>
+          <div class="stat"><span class="stat-num" data-count="9">0</span><span class="stat-label">Projects Built</span></div>
           <div class="stat"><span class="stat-num" data-count="15" data-suffix="+">0</span><span class="stat-label">Technologies</span></div>
           <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Year of Study</span></div>
         </div>
@@ -131,6 +131,51 @@
         <h2 class="section-title">Things I've built</h2>
       </div>
 
+      <nav class="group-nav" data-reveal>
+        <a href="#commercial">Commercial</a>
+        <a href="#mini-projects">Mini projects</a>
+      </nav>
+
+      <!-- Commercial work -->
+      <div class="project-group" id="commercial">
+        <div class="group-head" data-reveal>
+          <h3 class="group-title">Commercial work</h3>
+          <p class="group-sub">Production sites built for real clients and in use today.</p>
+        </div>
+
+        <article class="project-card featured tilt" data-reveal>
+          <div class="project-glow"></div>
+          <a href="https://www.srilankabaseball.lk" target="_blank" rel="noopener" class="project-shot">
+            <img src="images/sri-lanka-baseball.jpg" alt="Sri Lanka Baseball website preview" loading="lazy" />
+          </a>
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-tag">Client · Solo build</span>
+              <span class="project-index">2026</span>
+            </div>
+            <h3 class="project-title">Sri Lanka Baseball</h3>
+            <p class="project-desc">Official website of Sri Lanka Baseball, the national governing body for the sport. Fans get notices, tournaments, match line scores, team profiles, and a photo gallery. Association staff run everything from a no-code admin panel.</p>
+            <ul class="project-points">
+              <li>Standings and player batting/pitching stats are calculated automatically from match results</li>
+              <li>Public team registration with an admin approval queue and automatic confirmation emails</li>
+              <li>Role-based admin access (Super Admin, Editor, Read Only) that works on mobile</li>
+            </ul>
+            <div class="project-stack"><span>Next.js 15</span><span>TypeScript</span><span>Payload CMS</span><span>Supabase</span><span>PostgreSQL</span><span>Tailwind CSS</span><span>Resend</span><span>Vercel</span></div>
+            <div class="project-links">
+              <a href="https://www.srilankabaseball.lk" target="_blank" rel="noopener" class="project-link">Visit site <span>↗</span></a>
+              <span class="project-note">Private repository</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Mini projects -->
+      <div class="project-group" id="mini-projects">
+        <div class="group-head" data-reveal>
+          <h3 class="group-title">Mini projects</h3>
+          <p class="group-sub">Smaller builds for learning new tools and trying out ideas.</p>
+        </div>
+
       <div class="filter-bar" data-reveal>
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="Full-stack">Full-stack</button>
@@ -139,7 +184,7 @@
         <button class="filter-btn" data-filter="AI">AI</button>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid" id="miniGrid">
 
         <article class="project-card tilt" data-reveal data-category="Full-stack">
           <div class="project-glow"></div>
@@ -273,6 +318,7 @@
           </div>
         </article>
 
+      </div>
       </div>
     </section>
 

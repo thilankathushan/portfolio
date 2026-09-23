@@ -139,7 +139,7 @@ if (roleEl && !prefersReduced) {
 
 // ── Project filters ──
 const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.project-card');
+const cards = document.querySelectorAll('#miniGrid .project-card');
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
