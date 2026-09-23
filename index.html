@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
 
@@ -70,7 +70,7 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label">Projects Built</span></div>
+          <div class="stat"><span class="stat-num" data-count="11">0</span><span class="stat-label">Projects Built</span></div>
           <div class="stat"><span class="stat-num" data-count="15" data-suffix="+">0</span><span class="stat-label">Technologies</span></div>
           <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Year of Study</span></div>
         </div>
@@ -133,6 +133,7 @@
 
       <nav class="group-nav" data-reveal>
         <a href="#commercial">Commercial</a>
+        <a href="#hardware">Hardware</a>
         <a href="#mini-projects">Mini projects</a>
       </nav>
 
@@ -196,6 +197,43 @@
               <a href="https://jpura-authentic.web.app" target="_blank" rel="noopener" class="project-link">Visit site <span>↗</span></a>
               <span class="project-note">Private source</span>
             </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Hardware -->
+      <div class="project-group" id="hardware">
+        <div class="group-head" data-reveal>
+          <h3 class="group-title">Hardware</h3>
+          <p class="group-sub">Embedded systems built from sensors, microcontrollers, and firmware.</p>
+        </div>
+
+        <article class="project-card featured tilt" data-reveal>
+          <div class="project-glow"></div>
+          <div class="project-photo">
+            <img src="images/smart-blind-stick.jpg" alt="Smart Blind Stick prototype with ultrasonic sensors and Arduino housing" loading="lazy" />
+            <span class="photo-badge">Working prototype</span>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-tag">Embedded · Team of 3</span>
+              <span class="project-index">2026</span>
+            </div>
+            <h3 class="project-title">Smart Blind Stick</h3>
+            <p class="project-desc">An assistive cane that warns visually impaired users about hazards through vibration, helps them find a misplaced stick, and sends their location to a caretaker in an emergency. Everything runs on a single Arduino Nano.</p>
+            <div class="feature-grid">
+              <span><b>Obstacle</b>Ultrasonic, ≤ 50 cm</span>
+              <span><b>Water</b>Moisture at the tip</span>
+              <span><b>Darkness</b>Ambient light sensor</span>
+              <span><b>Haptics</b>Pattern per hazard</span>
+              <span><b>Find-My-Stick</b>433 MHz RF remote</span>
+              <span><b>GPS SOS</b>Maps link via SMS</span>
+            </div>
+            <ul class="project-points">
+              <li>Firmware prioritises alerts (obstacle › water › light) so overlapping hazards never blur together</li>
+              <li>Fixed SIM800L current spikes resetting the board with a dedicated supply path, and fit the firmware in 2 KB SRAM</li>
+            </ul>
+            <div class="project-stack"><span>Arduino Nano</span><span>C++</span><span>HC-SR04</span><span>SIM800L GSM</span><span>GPS</span><span>433 MHz RF</span><span>LDR</span></div>
           </div>
         </article>
       </div>
@@ -397,6 +435,6 @@
   <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
