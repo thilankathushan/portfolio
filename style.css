@@ -733,3 +733,17 @@ strong { color: var(--text); font-weight: 600; }
   *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* AI & ML portfolio: shared featured-card styling and theme tokens. */
+.ai-section-intro { max-width: 660px; margin-top: 1rem; color: var(--text2); line-height: 1.75; }
+.ai-card .browser { max-width: 420px; }
+.ai-card .browser img { aspect-ratio: auto; height: auto; }
+.ai-highlight { padding: 0.75rem 1rem; margin-bottom: 0.9rem; border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--accent-soft); }
+.ai-highlight strong { display: block; color: var(--text); font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+.ai-highlight span { display: block; color: var(--text2); font-size: 0.75rem; line-height: 1.6; margin-top: 0.15rem; }
+.ai-card .project-links { flex-wrap: wrap; }
+.ai-demo-note, .ai-hosting-note { color: var(--text2); font-size: 0.75rem; line-height: 1.65; }
+.ai-demo-note { margin-top: 0.85rem; }
+.ai-hosting-note { margin-top: 1.5rem; }
+.ai-card .project-body, .ai-card .project-shot { min-width: 0; }
+.ai-card .project-tag { line-height: 1.5; }

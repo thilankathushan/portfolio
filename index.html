@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
 
@@ -86,7 +86,7 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num" data-count="11">0</span><span class="stat-label">Projects built</span></div>
+          <div class="stat"><span class="stat-num" data-count="14">0</span><span class="stat-label">Projects built</span></div>
           <div class="stat"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Technologies</span></div>
           <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Year of study</span></div>
         </div>
@@ -174,6 +174,7 @@
 
       <nav class="group-nav" data-reveal>
         <a href="#commercial">Commercial</a>
+        <a href="#ai-ml">AI &amp; ML</a>
         <a href="#hardware">Hardware</a>
         <a href="#mini-projects">Mini projects</a>
       </nav>
@@ -241,6 +242,86 @@
           </div>
         </article>
       </div>
+
+    <!-- AI & ML projects -->
+    <div class="project-group" id="ai-ml" aria-labelledby="ai-ml-title">
+      <div class="group-head" data-reveal>
+        <h3 class="group-title" id="ai-ml-title">AI &amp; ML projects</h3>
+        <p class="group-sub">From finding evidence to spotting anomalies and forecasting sales. Three end-to-end builds with working demos, reproducible evaluations, and documented tradeoffs.</p>
+      </div>
+      <article class="project-card featured ai-card" data-reveal>
+        <div class="project-glow"></div>
+        <a href="https://evidence-search-demo.onrender.com" target="_blank" rel="noopener" class="project-shot" aria-label="Open Evidence Search demo">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>evidence-search-demo.onrender.com</span></div>
+            <img src="images/evidence-search.png" alt="Evidence Search workspace showing a question, retrieved passage, and file-and-line source citation" loading="lazy" width="1280" height="1122" />
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-top"><span class="project-tag">Retrieval &amp; grounded answers</span><span class="project-index">01</span></div>
+          <h3 class="project-title">Evidence Search</h3>
+          <p class="project-desc">Ask a document collection a question and trace the answer back to its source. A searchable workspace combines keyword, semantic, and hybrid retrieval with optional AI answers and inspectable citations.</p>
+          <div class="ai-highlight"><strong>Source-first answers</strong><span>Every retrieved passage links back to exact document lines.</span></div>
+          <ul class="project-points"><li>Built BM25, MiniLM embeddings, and hybrid rank fusion with a SQLite cache.</li><li>Added source inspection, citation checks, and refusal when evidence is insufficient.</li></ul>
+          <div class="project-stack"><span>Python</span><span>FastAPI</span><span>MiniLM</span><span>SQLite</span><span>OpenAI / Groq</span></div>
+          <div class="project-links">
+            <a href="https://evidence-search-demo.onrender.com" target="_blank" rel="noopener" class="project-link">Try demo <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/evidence-search" target="_blank" rel="noopener" class="project-link">GitHub <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/evidence-search/blob/main/docs/CASE_STUDY.md" target="_blank" rel="noopener" class="project-link">Case study <span>↗</span></a>
+          </div>
+          <p class="ai-demo-note">Public demo uses a read-only sample collection.</p>
+        </div>
+      </article>
+
+      <article class="project-card featured ai-card flip" data-reveal>
+        <div class="project-glow"></div>
+        <a href="https://edge-inspect-demo.onrender.com" target="_blank" rel="noopener" class="project-shot" aria-label="Open Edge Inspect demo">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>edge-inspect-demo.onrender.com</span></div>
+            <img src="images/edge-inspect.png" alt="Edge Inspect synthetic demo showing the original geometry sample, anomaly heatmap, and overlay" loading="lazy" width="1280" height="720" />
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-top"><span class="project-tag">Computer vision &amp; anomaly detection</span><span class="project-index">02</span></div>
+          <h3 class="project-title">Edge Inspect</h3>
+          <p class="project-desc">Find visual anomalies and see where a model is looking. An inspection app compares an RGB-template baseline with a compact PatchCore-style detector, using spatial heatmaps to explain its scores.</p>
+          <div class="ai-highlight"><strong>0.946 image AUROC</strong><span>PatchCore-style model · 83 held-out bottle images.</span></div>
+          <ul class="project-points"><li>Evaluated on held-out MVTec AD bottle images with separate normal-only calibration.</li><li>Compared PyTorch and ONNX CPU inference, including numerical parity and runtime.</li></ul>
+          <div class="project-stack"><span>Python</span><span>PyTorch</span><span>ResNet18</span><span>ONNX Runtime</span><span>Streamlit</span></div>
+          <div class="project-links">
+            <a href="https://edge-inspect-demo.onrender.com" target="_blank" rel="noopener" class="project-link">Try demo <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/edge-inspect" target="_blank" rel="noopener" class="project-link">GitHub <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/edge-inspect/blob/main/docs/CASE_STUDY.md" target="_blank" rel="noopener" class="project-link">Case study <span>↗</span></a>
+          </div>
+          <p class="ai-demo-note">Public demo and screenshot use synthetic geometry; bottle-model evaluation is separate.</p>
+        </div>
+      </article>
+
+      <article class="project-card featured ai-card" data-reveal>
+        <div class="project-glow"></div>
+        <a href="https://retail-forecast-demo-thushan.streamlit.app" target="_blank" rel="noopener" class="project-shot" aria-label="Open Retail Forecast demo">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>retail-forecast-demo-thushan.streamlit.app</span></div>
+            <img src="images/retail-forecast.png" alt="Retail Forecast dashboard showing a weekly product sales forecast and estimated uncertainty intervals" loading="lazy" width="1280" height="720" />
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-top"><span class="project-tag">Time series &amp; ML engineering</span><span class="project-index">03</span></div>
+          <h3 class="project-title">Retail Forecast</h3>
+          <p class="project-desc">Explore next-week product sales with visible uncertainty. A reproducible pipeline turns retail transactions into weekly forecasts, compares models over time, and serves results in an interactive dashboard.</p>
+          <div class="ai-highlight"><strong>7.71% lower absolute error</strong><span>Versus a trailing four-week mean · frozen 13-week evaluation.</span></div>
+          <ul class="project-points"><li>Used chronological backtests and leakage-tested features across 59,395 product-weeks.</li><li>Built experiment tracking, delayed-error monitoring, and a validated forecast API.</li></ul>
+          <div class="project-stack"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>MLflow</span><span>FastAPI</span><span>Streamlit</span></div>
+          <div class="project-links">
+            <a href="https://retail-forecast-demo-thushan.streamlit.app" target="_blank" rel="noopener" class="project-link">Try demo <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/retail-forecast" target="_blank" rel="noopener" class="project-link">GitHub <span>↗</span></a>
+            <a href="https://github.com/thilankathushan/retail-forecast/blob/main/CASE_STUDY.md" target="_blank" rel="noopener" class="project-link">Case study <span>↗</span></a>
+          </div>
+          <p class="ai-demo-note">Historical 2009–2011 sales demo; uncertainty intervals are estimates.</p>
+        </div>
+      </article>
+      <p class="ai-hosting-note">Demos run on free hosting and may need a moment to wake up.</p>
+    </div>
 
       <!-- Hardware -->
       <div class="project-group" id="hardware">
